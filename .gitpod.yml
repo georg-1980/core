@@ -1,13 +1,13 @@
 tasks:
   - before: echo "deb-src http://archive.ubuntu.com/ubuntu/ focal main restricted" >> /etc/apt/sources.list && echo "deb-src http://archive.ubuntu.com/ubuntu/ focal-updates main restricted" >> /etc/apt/sources.list && echo "deb-src http://security.ubuntu.com/ubuntu/ focal-security main restricted" >> /etc/apt/sources.list" && echo "deb-src http://security.ubuntu.com/ubuntu/ focal-security universe" >> /etc/apt/sources.list && echo "deb-src http://security.ubuntu.com/ubuntu/ focal-security multiverse" >> /etc/apt/sources.list  # echo 'test before' # sh ./scripts/setup.sh
-    init: sudo apt-get update && sudo apt-get install build-essential git libkrb5-dev graphviz nasm ccache -y && sudo apt-get build-dep -y libreoffice #sudo apt-get install ccache -y #npm install
+    init: echo 'test georg' #sudo apt-get update && sudo apt-get install build-essential git libkrb5-dev graphviz nasm ccache -y && sudo apt-get build-dep -y libreoffice #sudo apt-get install ccache -y #npm install
     command: ccache -M 51 #sudo apt-get install ccache -y # npm run dev
-  - name: Database
-    init: echo 'init database' #sh ./scripts/seed-database.sh
-    command: npm start-db
-    env:
-      DB_HOST: localhost:3306
-      DB_USER: readOnlyUser
+#  - name: Database
+#    init: echo 'init database' #sh ./scripts/seed-database.sh
+#    command: npm start-db
+#    env:
+#      DB_HOST: localhost:3306
+#      DB_USER: readOnlyUser
 # Ports to expose on workspace startup
 ports:
   - port: 5900
