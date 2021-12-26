@@ -43,6 +43,8 @@ github:
     addComment: false
     # add a "Review in Gitpod" button to the pull request's description (defaults to false)
     addBadge: false
+    #GD test ob incremental auch zugelassen sind 
+    incremental: true
 vscode:
  extensions:
   - ms-vscode.makefile-tools@0.3.1
