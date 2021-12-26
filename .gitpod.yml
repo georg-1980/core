@@ -19,7 +19,7 @@ tasks:
 #      DB_HOST: localhost:3306
 #      DB_USER: readOnlyUser
 #  - init: ./configure && timeout 45m make -j16 || true
-# Ports to expose on workspace startup
+# Ports to expose on workspace startup 1
 ports:
   - port: 5900
     onOpen: open-preview
