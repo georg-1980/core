@@ -1,8 +1,8 @@
 tasks:
 # In der ersten phase werden die Programme installiert (wenn inaktiv before und init mit echo "nicht aktiv Phase 1" #
   - before: sudo apt-get update -y && sudo apt-get install -y libcups2-dev git build-essential zip junit4 libkrb5-dev nasm graphviz python3 python3-dev qtbase5-dev libkf5coreaddons-dev libkf5i18n-dev libkf5config-dev libkf5windowsystem-dev libkf5kio-dev autoconf libcups2-dev libfontconfig1-dev gperf default-jdk doxygen libxslt1-dev xsltproc libxml2-utils libxrandr-dev bison flex libgtk-3-dev libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev ant ant-optional ccache && ccache -M 51 && ./autogen.sh --with-lang=en-US --enable-pch  #echo "deb-src http://archive.ubuntu.com/ubuntu/ focal main restricted" >> /etc/apt/sources.list 
-    init: echo "init" #&& make install # timeout 50m make || true# make install #echo "Georg Init 01" #echo "deb-src http://archive.ubuntu.com/ubuntu/ focal-updates main restricted" >> /etc/apt/sources.list && echo "deb-src http://security.ubuntu.com/ubuntu/ focal-security main restricted" >> /etc/apt/sources.list 
-    command: echo "Hey Georg core 01" #echo "deb-src http://security.ubuntu.com/ubuntu/ focal-security universe" >> /etc/apt/sources.list && echo "deb-src http://security.ubuntu.com/ubuntu/ focal-security multiverse" >> /etc/apt/sources.list && sudo apt-get update  # echo 'test before' # sh ./scripts/setup.sh #echo 'test georg int' #sudo apt-get update && sudo apt-get install build-essential git libkrb5-dev graphviz nasm ccache -y && sudo apt-get build-dep -y libreoffice #sudo apt-get install ccache -y #npm install #echo 'test georg command' #ccache -M 51 #sudo apt-get install ccache -y # npm run dev
+#    init: echo "init" #&& make install # timeout 50m make || true# make install #echo "Georg Init 01" #echo "deb-src http://archive.ubuntu.com/ubuntu/ focal-updates main restricted" >> /etc/apt/sources.list && echo "deb-src http://security.ubuntu.com/ubuntu/ focal-security main restricted" >> /etc/apt/sources.list 
+#    command: echo "Hey Georg core 01" #echo "deb-src http://security.ubuntu.com/ubuntu/ focal-security universe" >> /etc/apt/sources.list && echo "deb-src http://security.ubuntu.com/ubuntu/ focal-security multiverse" >> /etc/apt/sources.list && sudo apt-get update  # echo 'test before' # sh ./scripts/setup.sh #echo 'test georg int' #sudo apt-get update && sudo apt-get install build-essential git libkrb5-dev graphviz nasm ccache -y && sudo apt-get build-dep -y libreoffice #sudo apt-get install ccache -y #npm install #echo 'test georg command' #ccache -M 51 #sudo apt-get install ccache -y # npm run dev
 # In der zweiten phase werden die make ausgeführt (wenn inaktiv before und init mit echo "nicht aktiv Phase 2" #)
 #  - before: echo "Phase 2  make "
 #    init: make #echo "Georg Init 01" #echo "deb-src http://archive.ubuntu.com/ubuntu/ focal-updates main restricted" >> /etc/apt/sources.list && echo "deb-src http://security.ubuntu.com/ubuntu/ focal-security main restricted" >> /etc/apt/sources.list 
@@ -29,22 +29,38 @@ ports:
     onOpen: ignore
 github:
   prebuilds:
-    # enable for the default branch (defaults to true)
+    # enable for the master/default branch (defaults to true)
     master: true
     # enable for all branches in this repo (defaults to false)
-    branches: false
+    branches: true
     # enable for pull requests coming from this repo (defaults to true)
     pullRequests: true
     # enable for pull requests coming from forks (defaults to false)
-    pullRequestsFromForks: false
-    # add a check to pull requests (defaults to true)
-    addCheck: true
-    # add a "Review in Gitpod" button as a comment to pull requests (defaults to false)
-    addComment: false
-    # add a "Review in Gitpod" button to the pull request's description (defaults to false)
+    pullRequestsFromForks: true
+    # add a "Review in Gitpod" button as a comment to pull requests (defaults to true)
+    addComment: true
+    # add a "Review in Gitpod" button to pull requests (defaults to false)
     addBadge: false
+    # add a label once the prebuild is ready to pull requests (defaults to false)
+    addLabel: prebuilt-in-gitpod
+#github:
+#  prebuilds:
+    # enable for the default branch (defaults to true)
+#    master: true
+    # enable for all branches in this repo (defaults to false)
+#    branches: false
+    # enable for pull requests coming from this repo (defaults to true)
+#    pullRequests: true
+    # enable for pull requests coming from forks (defaults to false)
+#    pullRequestsFromForks: false
+    # add a check to pull requests (defaults to true)
+#    addCheck: true
+    # add a "Review in Gitpod" button as a comment to pull requests (defaults to false)
+#    addComment: false
+    # add a "Review in Gitpod" button to the pull request's description (defaults to false)
+#    addBadge: false
     #GD test ob incremental auch zugelassen sind 
-    incremental: true
+#    incremental: true
 vscode:
  extensions:
   - ms-vscode.makefile-tools@0.3.1
