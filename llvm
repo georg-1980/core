@@ -1,0 +1,7 @@
+//https://wiki.documentfoundation.org/Development/Clang_Code_Analysis
+sudo apt install llvm clang clang-tools
+
+scan-build --use-cc=clang --use-c++=clang++ ./configure --disable-ccache --enable-debug --with-system-libcmis=no --with-system-hsqldb=no --with-system-saxon=no --with-system-libs
+
+mkdir /tmp/libreoffice
+scan-build --use-cc=clang --use-c++=clang++ -o /tmp/libreoffice make
