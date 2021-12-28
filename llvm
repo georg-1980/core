@@ -1,5 +1,5 @@
 //https://wiki.documentfoundation.org/Development/Clang_Code_Analysis
-sudo apt install llvm clang clang-tools
+sudo apt install llvm clang clang-tools libclucene-core1v5
 
 scan-build --use-cc=clang --use-c++=clang++ ./configure --disable-ccache --enable-debug --with-system-libcmis=no --with-system-hsqldb=no --with-system-saxon=no --with-system-libs
 

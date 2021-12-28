@@ -1,0 +1,7 @@
+conftest.cpp:97:29: error: call to implicitly-deleted copy constructor of 'S1'
+        S1 f(S2 s) { return s; }
+                            ^
+conftest.cpp:95:21: note: copy constructor is implicitly deleted because 'S1' has a user-declared move constructor
+        struct S1 { S1(S1 &&); };
+                    ^
+1 error generated.
